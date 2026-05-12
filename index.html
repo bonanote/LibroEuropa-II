@@ -4,10 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
 <title>Diarios de Suiza - Volumen II</title>
-<meta property="og:title" content="Diarios de Suiza - Vol II">
-<meta property="og:description" content="Cartas de un argentino a sus padres. Archivo Familiar Bona.">
-<meta property="og:type" content="book">
-
 <script src="https://cdn.jsdelivr.net/npm/page-flip/dist/js/page-flip.browser.min.js"></script>
 
 <style>
@@ -26,10 +22,9 @@ body {
   justify-content: center;
   font-family: 'Lora', serif;
   overflow: hidden;
-  touch-action: pan-x pan-y; /* allow scrolling but not interfering with page flip */
+  touch-action: pan-x pan-y;
 }
 
-/* ── ZOOM WRAPPER ── */
 #zoom-wrapper {
   display: flex;
   align-items: center;
@@ -94,7 +89,6 @@ p {
   font-size: 0.85rem;
   line-height: 1.45;
   color: #444;
-  height: auto;
 }
 
 .notes-title {
@@ -109,19 +103,12 @@ p {
 .note-item { margin-bottom: 8px; }
 .note-ref { font-weight: bold; color: #2c3e50; }
 
-.blank-page-text {
-  width: 100%; height: 100%;
-  display: flex; align-items: center; justify-content: center;
-  font-family: 'Cinzel', serif; font-style: italic; color: #aaa; font-size: 1.2rem;
-}
-
 .photo-frame {
-  width: 100%; height: 380px;
+  width: 100%; height: 320px;
   background: #f4f4f4; border: 6px solid #fff;
   box-shadow: 2px 2px 10px rgba(0,0,0,0.15);
   margin: 15px auto;
   display: flex; align-items: center; justify-content: center; overflow: hidden;
-  transform: rotate(-0.5deg);
 }
 
 .photo-frame img { width: 100%; height: 100%; object-fit: contain; }
@@ -129,17 +116,11 @@ p {
 .cover {
   background-color: #2c3e50; color: #fff; padding: 40px;
   display: flex; flex-direction: column; justify-content: space-between;
-  border-right: 8px solid #1a252f;
 }
 
 .title {
   font-family: 'Cinzel', serif; font-size: 3rem; line-height: 1.1;
-  text-align: center; font-weight: 700; margin-top: 20px; letter-spacing: 2px;
-}
-
-.subtitle {
-  font-family: 'Lora', serif; font-size: 1.1rem; text-align: center;
-  font-style: italic; margin-bottom: 20px; opacity: 0.9;
+  text-align: center; font-weight: 700; margin-top: 20px;
 }
 
 .cover-img {
@@ -149,106 +130,46 @@ p {
 
 .cover-img img { width: 100%; height: 100%; object-fit: cover; }
 
-/* ── CONTROLS ── */
 .controls-container {
-  position: fixed;
-  bottom: 25px;
-  left: 0;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 12px;
-  z-index: 10000;
-  pointer-events: none;
-  flex-wrap: wrap;
-  padding: 0 10px;
+  position: fixed; bottom: 25px; left: 0; width: 100%;
+  display: flex; justify-content: center; align-items: center; gap: 12px;
+  z-index: 10000; pointer-events: none;
 }
 
+.nav-btn, .index-btn, .zoom-btn { pointer-events: auto; cursor: pointer; }
+
 .nav-btn {
-  pointer-events: auto;
   background: #f5c518; border: 2px solid #fff;
   width: 50px; height: 50px; border-radius: 50%;
-  font-size: 1.5rem; font-weight: bold; color: #000;
-  display: flex; align-items: center; justify-content: center;
-  cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.6);
-  -webkit-tap-highlight-color: transparent;
+  font-size: 1.5rem; display: flex; align-items: center; justify-content: center;
 }
 
 .index-btn {
-  pointer-events: auto;
   background: #2c3e50; color: #fff; border: 2px solid #f5c518;
   padding: 0 16px; height: 50px; border-radius: 25px;
-  font-family: 'Cinzel', serif; font-weight: bold; font-size: 0.9rem;
-  display: flex; align-items: center; justify-content: center;
-  cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.6);
-  -webkit-tap-highlight-color: transparent;
+  font-family: 'Cinzel', serif; font-weight: bold;
 }
 
-/* ── ZOOM CONTROLS ── */
 .zoom-group {
-  pointer-events: auto;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  background: rgba(0,0,0,0.65);
-  border: 1px solid rgba(255,255,255,0.25);
-  border-radius: 30px;
-  padding: 6px 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.6);
+  display: flex; align-items: center; gap: 6px;
+  background: rgba(0,0,0,0.65); border-radius: 30px; padding: 6px 12px;
 }
 
 .zoom-btn {
-  background: #f5c518;
-  border: none;
-  width: 36px; height: 36px;
-  border-radius: 50%;
-  font-size: 1.3rem; font-weight: bold; color: #000;
-  display: flex; align-items: center; justify-content: center;
-  cursor: pointer;
-  -webkit-tap-highlight-color: transparent;
-  line-height: 1;
-}
-
-.zoom-btn:active { transform: scale(0.92); }
-
-#zoom-label {
-  color: #fff;
-  font-family: 'Cinzel', serif;
-  font-size: 0.8rem;
-  min-width: 38px;
-  text-align: center;
-  user-select: none;
-}
-
-.zoom-fit-btn {
-  background: transparent;
-  border: 1px solid #f5c518;
-  color: #f5c518;
-  font-family: 'Cinzel', serif;
-  font-size: 0.65rem;
-  font-weight: bold;
-  padding: 4px 8px;
-  border-radius: 12px;
-  cursor: pointer;
-  -webkit-tap-highlight-color: transparent;
-  white-space: nowrap;
+  background: #f5c518; border: none; width: 36px; height: 36px;
+  border-radius: 50%; font-weight: bold;
 }
 
 .page-num {
-  position: absolute;
-  top: 25px; right: 25px;
-  font-family: 'Cinzel', serif; font-weight: bold;
-  color: #999; font-size: 0.9rem;
+  position: absolute; top: 25px; right: 25px;
+  font-family: 'Cinzel', serif; color: #999; font-size: 0.9rem;
 }
 
 .index-list { list-style: none; padding: 0; }
 .index-list li {
   padding: 10px 0; border-bottom: 1px dashed #ccc;
-  cursor: pointer; font-weight: bold;
-  font-family: 'Cinzel', serif; font-size: 0.85rem;
+  cursor: pointer; font-family: 'Cinzel', serif; font-size: 0.85rem;
 }
-.index-list li:hover { color: #d35400; }
 .index-num { float: right; color: #777; }
 </style>
 </head>
@@ -261,19 +182,16 @@ p {
     <div class="page cover" data-density="hard">
       <div>
         <div class="title">DIARIOS DE<br>SUIZA<br>VOLUMEN II</div>
-        <div class="subtitle">Continuación de las cartas (1972-1974)</div>
+        <div style="text-align:center; font-style:italic; opacity:0.9;">Cartas 1972-1974</div>
       </div>
       <div class="cover-img"><img src="LibroEuropaII/portada.png" alt="Portada"></div>
-      <div style="text-align:center; font-family:'Cinzel'; font-size:1.5rem; font-weight:bold;">GUILLERMO BONA</div>
+      <div style="text-align:center; font-family:'Cinzel'; font-size:1.5rem;">GUILLERMO BONA</div>
     </div>
 
     <div class="page" data-density="soft">
       <div class="page-content">
         <div class="header">CONTEXTO FAMILIAR</div>
-        <div class="photo-frame" style="height: 500px; transform: none;">
-          <img src="LibroEuropaII/infografia_familia.png" alt="Infografía">
-        </div>
-        <div style="text-align:center; font-size: 0.8rem; font-style: italic; color: #666; margin-top: 5px;">Archivo Familiar Bona</div>
+        <div class="photo-frame" style="height: 500px;"><img src="LibroEuropaII/infografia_familia.png" alt="Familia"></div>
       </div>
     </div>
 
@@ -285,34 +203,29 @@ p {
           <li onclick="flip(6)">02 DE JUNIO DE 1972 - FENÓMENO TELEPÁTICO <span class="index-num">7</span></li>
           <li onclick="flip(9)">04 DE JUNIO DE 1972 - ÚLTIMA SEMANA DE CIVIL <span class="index-num">10</span></li>
           <li onclick="flip(10)">05 DE JUNIO DE 1972 - ROUSSEAU O VICTOR HUGO <span class="index-num">11</span></li>
+          <li onclick="flip(12)">06 DE JUNIO DE 1972 - LAUSANNE <span class="index-num">13</span></li>
         </ul>
       </div>
     </div>
 
     <div class="page" data-density="soft">
-      <div class="page-content">
-        <div class="blank-page-text">PÁGINA EN BLANCO</div>
-      </div>
+      <div class="page-content"><div style="display:flex; align-items:center; justify-content:center; height:100%; color:#aaa; font-family:'Cinzel';">PÁGINA EN BLANCO</div></div>
     </div>
 
     <div class="page" data-density="soft">
       <div class="page-num">5</div>
       <div class="page-content">
         <div class="header">25 DE MAYO DE 1973 - ¡FAUSTO DÍA!</div>
-        <p>Queridos mami y papi: Son las 8:30 y ya estoy escribiéndoles. Me vine a un bar a tomar el desayuno así tengo más tiempo antes que empiece el colegio. La sorpresa de la llamada es muy muy linda, cuando me di cuenta que era de la Argentina pensé que me querían hablar nada más pero después cuando te escuché llorando dije: <strong>¡zas! acá pasó algo</strong> y mami no me lo quiere decir, así que seguro le pasó el teléfono a papi; dicho y hecho le pasaste el teléfono a papi y ahí yo <strong>me fruncí todo</strong> y estaba esperando en cualquier momento una noticia mala.</p>
-        <p>Bueno en fin, fue realmente lindo pero recién me calmé cuando cortaron. Aparte me agarraron dormido que, cuando me despertaron, yo no tenía idea de lo que estaba pasando. Escúchenme bien, claro que los extraño y a veces bastante pero, lo que pasa, es que seguro no tanto como ustedes a mí.</p>
-        <p>Como se escuchaba mal entendí algunas cosas por la mitad. Como por ejemplo lo que me dijo papi sobre la plata que me iba a mandar. Creo que dijo 100 dólares. Si me empieza a mandar ya, puedo aguantar bien hasta diciembre. Pero después cuando viva acá va a ver que arreglárselas de otro modo porque por mes me hacen falta 175 dólares.</p>
+        <p>Queridos mami y papi: Son las 8:30 y ya estoy escribiéndoles. Me vine a un bar a tomar el desayuno así tengo más tiempo antes que empiece el colegio...</p>
+        <p>...Como se escuchaba mal entendí algunas cosas por la mitad. Creo que dijo 100 dólares. Si me empieza a mandar ya, puedo aguantar bien hasta diciembre.</p>
       </div>
     </div>
 
     <div class="page" data-density="soft">
       <div class="page-num">6</div>
       <div class="page-content">
-        <p>Después, mami me dijiste que viene alguien por aquí. Mirá mucha ropa no necesito porque me queda un mes para entrar en la <strong>colimba</strong> y una vez adentro no uso nada más que calzoncillos. No mandes mucho pero sí un pantalón de verano (un jean, nada de pantalones muy finos porque no los uso) y alguna remera como las que compraste en Negri el año pasado de hilo. Y las T-shirt de colores que ahora que viene el verano no tengo ganas de andar tirando camisas cada 2x3. ¡Che! mami no llorés que ya vuelvo, además escribo bastante no te podes quejar. La semana que viene te mando otra foto. Cuando entre en el servicio dejo de alquilar la pieza total los sábados puedo dormir en casa de los amigos. Esta tarde tengo que llevar los certificados a la Universidad a ver que me contestan.</p>
-        <p style="font-style: italic; color: #444; background: #fdfaf0; padding: 10px; border: 1px solid #eee;">Papi comme est que tu veux que je te parle en Français par téléphone? J'étais si nerveux que je ne pouvais pas même hablar en Espagnol. Mais si vous m'envoyez une cassette avec cet homme qui va venir, je peux la renvoyer avec une petite conversation en Français.</p>
-        <p>Después cuando vuelva del servicio supongo que alquilaré una pieza... Mami gozo de plena salud, me cuido mucho, mirá como me cuidaré que no juego rugby para prevenir cualquier rotura. Bueno ahora tengo que entrar a clases, gracias por llamar. Chao! Besos, abrazos y saludos.</p>
+        <p>Mami no llorés que ya vuelvo, además escribo bastante no te podes quejar. Esta tarde tengo que llevar los certificados a la Universidad...</p>
         <div class="handwritten">Guillermo</div>
-        <p style="font-size: 0.85rem; border-top: 1px solid #ccc; padding-top: 5px;"><strong>PD:</strong> ¡y el rana de Nello me podría haber hablado también, lo extraño! Que me escriba !!!</p>
         <div class="photo-frame"><img src="LibroEuropaII/IMAGEN 1.png" alt="Imagen 1"></div>
       </div>
     </div>
@@ -321,27 +234,26 @@ p {
       <div class="page-num">7</div>
       <div class="page-content">
         <div class="header">02 DE JUNIO DE 1972 - FENÓMENO TELEPÁTICO</div>
-        <p>Queridos mami y papi: Este mañana me olvidé contarles el fenómeno telepático que tuve. Estaba durmiendo cuando de repente sentí que estaba hablando con mami por teléfono y me dijo algo que me hizo despertar, me desperté miré el reloj, ví que era temprano y me tiré para dormir cuando sonó el teléfono y eran uds, ¿no les parece fantástico? No me acuerdo cuando recibí la última carta suya pero ya se la contesté y ayer, como ya dije por teléfono, recibí lo de Nello que me dejó atónito por el francés (si eso lo escribió él, yo me frustro porque es más o menos lo que puedo escribir yo). Qué lástima que el cassette tenga que pasar por aduana porque como funcionan las cosas en la Arg. va a tardar años para salir, ¿o Rubio puede hacer algo? De todos modos tengo un amigo Colombiano que se va a operar de úlcera a la Argentina y les mando un cassette por él, creo que sale el lunes 10. Ahora uds. mándenme cassettes por correo porque creo que acá es muy fácil el asunto de la aduana.</p>
+        <p>Queridos mami y papi: Este mañana me olvidé contarles el fenómeno telepático que tuve. Estaba durmiendo cuando de repente sentí que estaba hablando con mami por teléfono...</p>
       </div>
     </div>
 
     <div class="page" data-density="soft">
       <div class="page-num">8</div>
       <div class="page-content">
-        <p style="font-style: italic;">Le jeudi passé soir a commencé la fête de la cité. Ça a été una fiesta formidable. Duró tres días, se podía ver a todo el mundo bailar y beber, día y noche. Se parecía al Carnaval de Río. Sans ninguna duda los que más se divertían eran los españoles y los italianos, hacían un ruido increíble. J'ai été là le vendredi soir et hier hasta las tres de la mañana, eso es por lo cual mamá encontró mi voz un poco rara, me había acostado a las cinco de la mañana.</p>
-        <p>Tengo dos fotos de un piso que se las voy a mandar junto con esta carta porque vean mi mundo. Mami no te preocupes, que me dijiste por teléfono que no me haga el <strong>"calavera"</strong>. Yo supongo que me conocen bastante y saben que de irresponsable no tengo nada. El pelo me lo corto el domingo que viene o el sábado, pero la barba NO, ¿para qué?, si la tengo prolija y bien cortada. Ayer fuimos a Ginebra a llevar a un amigo al aeropuerto y después nos dimos una vuelta por la ciudad. Es lindísima según la gente es la ciudad más linda de la Suiza y me parece que no se equivocan porque es colosal, cada día me gusta más todo esto.</p>
+        <p>Tengo dos fotos de un piso que se las voy a mandar junto con esta carta. El pelo me lo corto el domingo que viene o el sábado, pero la barba NO...</p>
       </div>
     </div>
 
     <div class="page" data-density="soft">
       <div class="page-num">9</div>
       <div class="page-content">
-        <p>Ah! y el miércoles pasado fuimos a Montreux que hay un festival de jazz y tocan unos conjuntos buenísimos, aparte de que Montreux es muy lindo. Ya terminé las clases de francés porque quería tenerme una semana libre para arreglar todos los asuntos antes de entrar al servicio. Además me da una bronca tremenda de tener que empezar con el servicio, todo el mundo se va de vacaciones para lugares espectaculares y yo me tengo que morir de calor laburando como un negro, ¡pero bueh! Voy a aprender bien bien el francés. Espero que mañana reciba la carta donde me escriben sobre la operación del <strong>Vati</strong>. Reciban muchos cariños y besos a todos y especialmente a mami que siempre me llama.</p>
+        <p>Ah! y el miércoles pasado fuimos a Montreux que hay un festival de jazz... Voy a aprender bien bien el francés.</p>
         <div class="handwritten">Guillermo</div>
         <div class="photo-frame"><img src="LibroEuropaII/IMAGEN 2.png" alt="Imagen 2"></div>
         <div class="notes-section">
-          <div class="notes-title">NOTAS DEL TEXTO</div>
-          <p class="note-item"><span class="note-ref">Calavera:</span> Juerguista. | <span class="note-ref">Vati:</span> Abuelo paterno.</p>
+          <div class="notes-title">NOTAS</div>
+          <p class="note-item"><span class="note-ref">Vati:</span> Abuelo paterno.</p>
         </div>
       </div>
     </div>
@@ -350,8 +262,7 @@ p {
       <div class="page-num">10</div>
       <div class="page-content">
         <div class="header">04 DE JUNIO DE 1972 - ÚLTIMA SEMANA DE CIVIL</div>
-        <p>Queridos Mami y Papi: Ayer recibí el aerograma del hospital que mandó mami, en un mismo día yo mandé una carta con fotos. Bueno esta es mi última semana de civil así que trato de aprovecharla <strong>al mango</strong>. Desde luego que tengo que hacer unos cuantos preparativos, pero no son nada problemáticos. Todavía no me contestaron de la universidad pero no se preocupen, mami por ahí me pregunta si podré entrar. Si puedo, pero el problema es otro, que no quiero dar examen de ingreso, que, si llegado el caso, no me queda otra alternativa, lo daría y de pasarlo entraría. El paquete que mandaron con Mattioli no me llegó, pero supongo que esta semana tiene que venir; de todos modos hago el cambio de dirección así que no hay problema.</p>
-        <p>Mami yo te extraño, te quiero, me cuido, me corté (me cortaron más bien) el pelo, la barba sigue igual, fumaba bastante pero bajé vertiginosamente. Dale en fin soy un muchacho hecho y derecho digno de los padres que tengo. Muchos besos y cariños al <strong>"bestia"</strong> (Nello) y decile a Nelly que el paquete para Patsy lo mandé hace años pero nunca me contestó.</p>
+        <p>Ayer recibí el aerograma del hospital. Esta es mi última semana de civil así que trato de aprovecharla al mango...</p>
         <div class="handwritten">Willie Guillermo</div>
       </div>
     </div>
@@ -360,138 +271,79 @@ p {
       <div class="page-num">11</div>
       <div class="page-content">
         <div class="header">05 DE JUNIO DE 1972 - ROUSSEAU O VICTOR HUGO</div>
-        <p>Chers papa et chère maman: Papá, ayer viernes recibí tu carta del 30.5.72. Antes que nada, lo que mamá dijo (que oía una voz que reía) me hizo reír, ustedes no pueden entender que la inglesa no tiene nada que ver conmigo. Ya lo dije una decena de veces, es solo una amiga. Gracias por el envío de los 100 u$s. El mes de Mayo gasté 1000 SF aproximadamente (recordar los 365 ChFr de la escuela Berlitz). Para este próximo mes voy a ahorrar lo que gano en el curso de Inglés para poder comprar algunos "gadgets" para el aparato de fotos. Tu me preguntas qu'est qu'ils font mes amis. Eh bien, il y a lesquels vont en vacances ici en Europe (la mayoría) y hay otros que se quedan para trabajar.</p>
-        <p>Bueno es injusto que escriba todo en francés sino la pobre mamá no entiende nada. ¡Che papi! ¿donde se ha visto un gerente general empleando palabras como <strong>"boulot"</strong> y <strong>"casser la croûte"</strong>? ¡Me extraña! En esta lengua hay más formalismos y burocracia que hay que ser Rousseau o Victor Hugo para comprar un caramelo por carta.</p>
+        <p>Chers papa et chère maman: Papá, ayer viernes recibí tu carta del 30.5.72. Gracias por el envío de los 100 u$s...</p>
       </div>
     </div>
 
     <div class="page" data-density="soft">
       <div class="page-num">12</div>
       <div class="page-content">
-        <p>A Trudy y a Jack siempre les escribo. Por acá el resto sigue todo más bien. Mami el otro día le cambié todos los botones a la camisa negra, 12 botones pegué, ¿qué te parece? Acá les mando una foto con Susan la de remera negra y Tulia (remera roja). En definitiva el único que salió <strong>"pintón"</strong> fui yo. (Mami el pelo no lo tengo así de largo, es lo que en fotografía se llama ilusión fotográfica). Manden fotos de sus vacaciones por Yacanto (lindo lieu). Saludos, besos, cariños de su hijo que los extraña también. Especialmente a Lidia cuando se trata de comer.</p>
+        <p>Mami el otro día le cambié todos los botones a la camisa negra, 12 botones pegué, ¿qué te parece? En definitiva el único que salió pintón fui yo.</p>
         <div class="handwritten">Guillermo</div>
         <div class="photo-frame"><img src="LibroEuropaII/IMAGEN 3.png" alt="Imagen 3"></div>
+      </div>
+    </div>
+
+    <div class="page" data-density="soft">
+      <div class="page-num">13</div>
+      <div class="page-content">
+        <div class="header">06 DE JUNIO DE 1972 - LAUSANNE</div>
+        <p>Queridos padres: Hoy rebozo de alegría, han llegado los 100 dólares. Esta tarde los fui a buscar eran 382 francos. Ahora estoy más tranquilo. Esta noche cuando vuelva a casa les pongo cuánto dinero en efectivo me queda.</p>
+        <p>Bueno, como ayer mandé la otra carta, en dos días no hay ninguna novedad. Ah si, hoy me pasé desde las 1 1/2 hasta las 3 1/2 planchando, como se aprecia una madre en estas condiciones. ¡Ah! Madre hay una sola !! y padre también.</p>
+        <p>Después del 10 de julio escriban a esta dirección: [Dirección tachada]. Todavía sigo esperando los prospectos del colegio para <strong>Nellito</strong>. Muchos besos, mami y espero no desesperes.</p>
+        <div class="handwritten">Guillermo (Guillermito para mami)</div>
+        <p style="font-size: 0.85rem; border-top: 1px solid #ccc; padding-top: 5px;"><strong>Nota:</strong> Me quedan 1300 francos. Ya pagué el alquiler este mes.</p>
         <div class="notes-section">
-          <div class="notes-title">NOTAS DEL TEXTO</div>
-          <p class="note-item"><span class="note-ref">Al mango:</span> Al máximo. | <span class="note-ref">Pintón:</span> Bien parecido. | <span class="note-ref">Boulot:</span> Trabajo.</p>
+          <div class="notes-title">ACLARACIONES</div>
+          <p class="note-item"><span class="note-ref">Nellito:</span> Lionel, hermano de Guillermo.</p>
+          <p class="note-item"><span class="note-ref">Servicio:</span> Referencia al servicio militar o civil obligatorio.</p>
         </div>
       </div>
     </div>
 
-    <div class="page cover" data-density="hard" style="border-left:5px solid #c49000; border-right:none;">
+    <div class="page cover" data-density="hard">
       <div style="border:2px solid #fff; padding:10px; text-align:center;">ARCHIVO FAMILIAR BONA</div>
       <div class="cover-img"><img src="LibroEuropaII/contratapa.png" alt="Contratapa"></div>
-      <div style="text-align:center; margin:auto; font-style:italic;">"Volumen II - Continuación del viaje."</div>
       <div style="text-align:center; font-weight:bold;">DIGITALIZADO 2026</div>
     </div>
 
-  </div><!-- #book -->
-</div><!-- #zoom-wrapper -->
+  </div>
+</div>
 
-<!-- Navigation + Zoom controls -->
 <div class="controls-container">
   <button class="nav-btn" id="prev">&#8592;</button>
   <button class="index-btn" onclick="flip(2)">ÍNDICE</button>
   <button class="nav-btn" id="next">&#8594;</button>
-
   <div class="zoom-group">
-    <button class="zoom-btn" id="zoom-out" title="Reducir">−</button>
-    <span id="zoom-label">100%</span>
-    <button class="zoom-btn" id="zoom-in" title="Ampliar">+</button>
-    <button class="zoom-fit-btn" id="zoom-fit" title="Ajustar a pantalla">FIT</button>
+    <button class="zoom-btn" id="zoom-out">−</button>
+    <span id="zoom-label" style="color:white; font-family:Cinzel; font-size:0.8rem;">100%</span>
+    <button class="zoom-btn" id="zoom-in">+</button>
   </div>
 </div>
 
 <script>
-/* ── PageFlip setup ── */
 let pageFlip;
-
-// Book base dimensions (the "design" size)
-const BOOK_W = 550;
-const BOOK_H = 780;
-
-// Zoom state
+const BOOK_W = 550; const BOOK_H = 780;
 let currentZoom = 1.0;
-const ZOOM_MIN  = 0.4;
-const ZOOM_MAX  = 3.0;
-const ZOOM_STEP = 0.15;
-
-const wrapper = document.getElementById('zoom-wrapper');
-const label   = document.getElementById('zoom-label');
 
 function applyZoom(z) {
-  currentZoom = Math.min(ZOOM_MAX, Math.max(ZOOM_MIN, z));
-  wrapper.style.transform = `scale(${currentZoom})`;
-  label.textContent = Math.round(currentZoom * 100) + '%';
-}
-
-function fitToScreen() {
-  // Account for the controls bar (~90px) and a small margin
-  const availW = window.innerWidth  * 0.96;
-  const availH = (window.innerHeight - 110) * 0.96;
-
-  // PageFlip shows TWO pages side by side (double width) except on cover/back
-  const bookTotalW = BOOK_W * 2;
-  const bookTotalH = BOOK_H;
-
-  const scaleW = availW  / bookTotalW;
-  const scaleH = availH  / bookTotalH;
-  applyZoom(Math.min(scaleW, scaleH));
+  currentZoom = Math.min(2.0, Math.max(0.5, z));
+  document.getElementById('zoom-wrapper').style.transform = `scale(${currentZoom})`;
+  document.getElementById('zoom-label').textContent = Math.round(currentZoom * 100) + '%';
 }
 
 function flip(n) { pageFlip.flip(n); }
 
-document.getElementById('zoom-in') .addEventListener('click', () => applyZoom(currentZoom + ZOOM_STEP));
-document.getElementById('zoom-out').addEventListener('click', () => applyZoom(currentZoom - ZOOM_STEP));
-document.getElementById('zoom-fit').addEventListener('click', fitToScreen);
+document.getElementById('zoom-in').addEventListener('click', () => applyZoom(currentZoom + 0.1));
+document.getElementById('zoom-out').addEventListener('click', () => applyZoom(currentZoom - 0.1));
 
-/* ── Pinch-to-zoom (touch) ── */
-let pinchStartDist = null;
-let pinchStartZoom = 1;
-
-document.addEventListener('touchstart', (e) => {
-  if (e.touches.length === 2) {
-    pinchStartDist = Math.hypot(
-      e.touches[0].clientX - e.touches[1].clientX,
-      e.touches[0].clientY - e.touches[1].clientY
-    );
-    pinchStartZoom = currentZoom;
-  }
-}, { passive: true });
-
-document.addEventListener('touchmove', (e) => {
-  if (e.touches.length === 2 && pinchStartDist) {
-    const dist = Math.hypot(
-      e.touches[0].clientX - e.touches[1].clientX,
-      e.touches[0].clientY - e.touches[1].clientY
-    );
-    applyZoom(pinchStartZoom * (dist / pinchStartDist));
-  }
-}, { passive: true });
-
-document.addEventListener('touchend', () => { pinchStartDist = null; });
-
-/* ── Init PageFlip after DOM ready ── */
 document.addEventListener('DOMContentLoaded', () => {
-  const el = document.getElementById('book');
-
-  pageFlip = new St.PageFlip(el, {
-    width:      BOOK_W,
-    height:     BOOK_H,
-    size:       'fixed',
-    showCover:  true,
-    useMouseEvents: true
+  pageFlip = new St.PageFlip(document.getElementById('book'), {
+    width: BOOK_W, height: BOOK_H, size: 'fixed', showCover: true
   });
-
   pageFlip.loadFromHTML(document.querySelectorAll('.page'));
-
   document.getElementById('prev').addEventListener('click', () => pageFlip.flipPrev());
   document.getElementById('next').addEventListener('click', () => pageFlip.flipNext());
-
-  // Auto-fit on load and on orientation change
-  fitToScreen();
-  window.addEventListener('resize', fitToScreen);
-  window.addEventListener('orientationchange', () => setTimeout(fitToScreen, 300));
 });
 </script>
 
