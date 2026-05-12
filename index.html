@@ -49,7 +49,7 @@ body {
 }
 
 .page-content {
-  padding: 55px 45px 60px 45px;
+  padding: 40px 45px 40px 45px;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -58,9 +58,9 @@ body {
 
 p {
   font-size: 0.92rem;
-  line-height: 1.5;
+  line-height: 1.45;
   text-align: justify;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
   color: #222;
   word-wrap: break-word;
 }
@@ -69,7 +69,7 @@ p {
   font-family: 'Cinzel', serif;
   font-weight: bold;
   border-bottom: 2px solid #444;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
   text-align: center;
   font-size: 1.05rem;
   padding-bottom: 8px;
@@ -82,30 +82,28 @@ p {
   font-size: 1.8rem;
   color: #003366;
   text-align: right;
-  margin-top: 10px;
+  margin-top: 5px;
 }
 
 .notes-section {
   background-color: #f9f9f9;
   border-left: 4px solid #ccc;
-  padding: 15px;
-  margin-top: 15px;
+  padding: 12px;
+  margin-top: 10px;
   font-size: 0.85rem;
-  line-height: 1.45;
+  line-height: 1.4;
   color: #444;
-  height: auto;
 }
 
 .notes-title {
   font-weight: bold;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   font-family: 'Cinzel', serif;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   border-bottom: 1px solid #ddd;
-  padding-bottom: 5px;
 }
 
-.note-item { margin-bottom: 8px; }
+.note-item { margin-bottom: 5px; }
 .note-ref { font-weight: bold; color: #2c3e50; }
 
 .blank-page-text {
@@ -115,12 +113,11 @@ p {
 }
 
 .photo-frame {
-  width: 100%; height: 380px;
+  width: 100%; height: 350px;
   background: #f4f4f4; border: 6px solid #fff;
   box-shadow: 2px 2px 10px rgba(0,0,0,0.15);
-  margin: 15px auto;
+  margin: 10px auto;
   display: flex; align-items: center; justify-content: center; overflow: hidden;
-  transform: rotate(-0.5deg);
 }
 
 .photo-frame img { width: 100%; height: 100%; object-fit: contain; }
@@ -128,12 +125,11 @@ p {
 .cover {
   background-color: #2c3e50; color: #fff; padding: 40px;
   display: flex; flex-direction: column; justify-content: space-between;
-  border-right: 8px solid #1a252f;
 }
 
 .title {
   font-family: 'Cinzel', serif; font-size: 3rem; line-height: 1.1;
-  text-align: center; font-weight: 700; margin-top: 20px; letter-spacing: 2px;
+  text-align: center; font-weight: 700; margin-top: 20px;
 }
 
 .subtitle {
@@ -149,101 +145,46 @@ p {
 .cover-img img { width: 100%; height: 100%; object-fit: cover; }
 
 .controls-container {
-  position: fixed;
-  bottom: 25px;
-  left: 0;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 12px;
-  z-index: 10000;
-  pointer-events: none;
-  flex-wrap: wrap;
-  padding: 0 10px;
+  position: fixed; bottom: 25px; left: 0; width: 100%;
+  display: flex; justify-content: center; align-items: center;
+  gap: 12px; z-index: 10000; pointer-events: none; padding: 0 10px;
 }
 
 .nav-btn {
-  pointer-events: auto;
-  background: #f5c518; border: 2px solid #fff;
+  pointer-events: auto; background: #f5c518; border: 2px solid #fff;
   width: 50px; height: 50px; border-radius: 50%;
-  font-size: 1.5rem; font-weight: bold; color: #000;
-  display: flex; align-items: center; justify-content: center;
-  cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.6);
-  -webkit-tap-highlight-color: transparent;
-}
-
-.index-btn {
-  pointer-events: auto;
-  background: #2c3e50; color: #fff; border: 2px solid #f5c518;
-  padding: 0 16px; height: 50px; border-radius: 25px;
-  font-family: 'Cinzel', serif; font-weight: bold; font-size: 0.9rem;
-  display: flex; align-items: center; justify-content: center;
-  cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.6);
-  -webkit-tap-highlight-color: transparent;
-}
-
-.zoom-group {
-  pointer-events: auto;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  background: rgba(0,0,0,0.65);
-  border: 1px solid rgba(255,255,255,0.25);
-  border-radius: 30px;
-  padding: 6px 12px;
+  font-size: 1.5rem; font-weight: bold; cursor: pointer;
   box-shadow: 0 4px 10px rgba(0,0,0,0.6);
 }
 
+.index-btn {
+  pointer-events: auto; background: #2c3e50; color: #fff; border: 2px solid #f5c518;
+  padding: 0 16px; height: 50px; border-radius: 25px;
+  font-family: 'Cinzel', serif; font-weight: bold; cursor: pointer;
+}
+
+.zoom-group {
+  pointer-events: auto; display: flex; align-items: center; gap: 6px;
+  background: rgba(0,0,0,0.65); border-radius: 30px; padding: 6px 12px;
+}
+
 .zoom-btn {
-  background: #f5c518;
-  border: none;
-  width: 36px; height: 36px;
-  border-radius: 50%;
-  font-size: 1.3rem; font-weight: bold; color: #000;
-  display: flex; align-items: center; justify-content: center;
-  cursor: pointer;
-  -webkit-tap-highlight-color: transparent;
-  line-height: 1;
+  background: #f5c518; border: none; width: 36px; height: 36px;
+  border-radius: 50%; font-size: 1.3rem; font-weight: bold; cursor: pointer;
 }
 
-#zoom-label {
-  color: #fff;
-  font-family: 'Cinzel', serif;
-  font-size: 0.8rem;
-  min-width: 38px;
-  text-align: center;
-  user-select: none;
-}
-
-.zoom-fit-btn {
-  background: transparent;
-  border: 1px solid #f5c518;
-  color: #f5c518;
-  font-family: 'Cinzel', serif;
-  font-size: 0.65rem;
-  font-weight: bold;
-  padding: 4px 8px;
-  border-radius: 12px;
-  cursor: pointer;
-  -webkit-tap-highlight-color: transparent;
-  white-space: nowrap;
-}
+#zoom-label { color: #fff; font-family: 'Cinzel', serif; min-width: 38px; text-align: center; }
 
 .page-num {
-  position: absolute;
-  top: 25px; right: 25px;
-  font-family: 'Cinzel', serif; font-weight: bold;
-  color: #999; font-size: 0.9rem;
+  position: absolute; top: 25px; right: 25px;
+  font-family: 'Cinzel', serif; font-weight: bold; color: #999; font-size: 0.9rem;
 }
 
 .index-list { list-style: none; padding: 0; }
 .index-list li {
-  padding: 8px 0; border-bottom: 1px dashed #ccc;
-  cursor: pointer; font-weight: bold;
-  font-family: 'Cinzel', serif; font-size: 0.8rem;
+  padding: 8px 0; border-bottom: 1px dashed #ccc; cursor: pointer;
+  font-family: 'Cinzel', serif; font-size: 0.8rem; font-weight: bold;
 }
-.index-list li:hover { color: #d35400; }
 .index-num { float: right; color: #777; }
 </style>
 </head>
@@ -265,10 +206,9 @@ p {
     <div class="page" data-density="soft">
       <div class="page-content">
         <div class="header">CONTEXTO FAMILIAR</div>
-        <div class="photo-frame" style="height: 500px; transform: none;">
+        <div class="photo-frame" style="height: 500px;">
           <img src="LibroEuropaII/infografia_familia.png" alt="Infografía">
         </div>
-        <div style="text-align:center; font-size: 0.8rem; font-style: italic; color: #666; margin-top: 5px;">Archivo Familiar Bona</div>
       </div>
     </div>
 
@@ -309,10 +249,10 @@ p {
       <div class="page-num">6</div>
       <div class="page-content">
         <p>La semana que viene te mando otra foto. Cuando entre en el servicio dejo de alquilar la pieza total los sábados puedo dormir en casa de los amigos. Esta tarde tengo que llevar los certificados a la Universidad a ver que me contestan.</p>
-        <p>Papi comme est que tu veux que je te parle en Français par téléphone? J'étais si nerveux que je ne pouvais pas même parler en Espagnol. Mais si vous m'envoyez une cassette avec cet homme  qui va venir, je peux la renvoyer avec une petite conversation en Français.</p>
-        <p>Después cuando vuelva del servicio supongo que alquilaré una pieza hasta que vaya para ella y despues cuando vuelva puedo alquilar un studio o la  idea que tenian en mente de comprar algo. Yo te voy a llevar precios y lo discutimos alla.</p>
+        <p>Papi comme est que tu veux que je te parle en Français par teléfono? J'étais si nerveux que je ne pouvais pas même hablar en Espagnol. Mais si vous m'envoyez una cassette avec cet hombre qui va venir, je peux la renvoyer avec una petite conversation en Français.</p>
+        <p>Después cuando vuelva del servicio supongo que alquilaré una pieza hasta que vaya para ella y despues cuando vuelva puedo alquilar un studio o la idea que tenian en mente de comprar algo. Yo te voy a llevar precios y lo discutimos alla.</p>
         <p>Mami gozo de plena salud, me cuido mucho, mirá como me cuidaré que no juego rugby ( aunque el equipo de la universidad me lo esta pidiendo todo el tiempo ) para prevenir cualquier rotura. Eso es algo que cuando vaya lo tenemos que hablar : un seguro medico.</p>
-        <p>Bueno ahora tengo que entrar a clases, gracias por llamar, espero que la proxima vez no me agarren de sorpresa , y que se me ocurra todo lo que tengo que decir y se escuche mejor . Aunque tengo la impresion que ustedes me escuchaban  bien. Chao! Gracias por todo lo que hacen por mi.  Besos, abrazos y saludos.</p>
+        <p>Bueno ahora tengo que entrar a clases, gracias por llamar, espero que la proxima vez no me agarren de sorpresa , y que se me ocurra todo lo que tengo que decir y se escuche mejor . Aunque tengo la impresion que ustedes me escuchaban bien. Chao! Gracias por todo lo que hacen por mi. Besos, abrazos y saludos.</p>
         <div class="handwritten">Guillermo</div>
         <p>PD: ¡y el rana de Nello me podría haber hablado también, lo extraño! Que me escriba !!!</p>
       </div>
@@ -426,10 +366,6 @@ p {
         <p>¡Ah! me llegaron las revistas, ¡muchas gracias! ¡Anda bien el país!!! ¿eh? ¡¡<strong>Un kilo de lomo 1.150 $</strong>!!?? ¿Cómo estás mami, me extrañás todavía? Bueno esta carta seguro la reciban cuando vuelvan de vacaciones, espero que lo hayan pasado bien. Saludos a los Engbäcky al degenerado de Nello decile que no hay derecho! ¡por lo menos María podría pasar por acá a la vuelta no?</p>
         <div class="handwritten">Chau muchos besos mami. Cariños. Guillermo</div>
         <div class="photo-frame"><img src="LibroEuropaII/FOLLETO_VEVEY.png" alt="Folleto Vevey"></div>
-        <div class="notes-section">
-          <div class="notes-title">NOTAS DEL TEXTO</div>
-          <p class="note-item"><span class="note-ref">Un kilo de lomo 1150$:</span> Referencia a la alta inflación en Argentina en 1972. | <span class="note-ref">Vevey:</span> Ciudad suiza donde se encuentra la escuela de artes.</p>
-        </div>
       </div>
     </div>
 
@@ -450,14 +386,10 @@ p {
         <div class="handwritten">Guillermo Bona su seguro servidor</div>
         <p>PD: ¡Che! que es <strong>jodido</strong> arreglárselas solo... si ya se papi ……(¡qué aprenda !!) Chau.</p>
         <div class="photo-frame"><img src="LibroEuropaII/CREDIT_SUISSE.png" alt="Documento Banco"></div>
-        <div class="notes-section">
-          <div class="notes-title">NOTAS DEL TEXTO</div>
-          <p class="note-item"><span class="note-ref">Chuchi:</span> Referencia afectuosa a la mascota familiar o persona cercana. | <span class="note-ref">Jodido:</span> Difícil, complicado.</p>
-        </div>
       </div>
     </div>
 
-    <div class="page cover" data-density="hard" style="border-left:5px solid #c49000; border-right:none;">
+    <div class="page cover" data-density="hard">
       <div style="border:2px solid #fff; padding:10px; text-align:center;">ARCHIVO FAMILIAR BONA</div>
       <div class="cover-img"><img src="LibroEuropaII/contratapa.png" alt="Contratapa"></div>
       <div style="text-align:center; margin:auto; font-style:italic;">"Volumen II - Continuación del viaje."</div>
@@ -473,21 +405,16 @@ p {
     <button class="zoom-btn" id="zoom-out">−</button>
     <span id="zoom-label">100%</span>
     <button class="zoom-btn" id="zoom-in">+</button>
-    <button class="zoom-fit-btn" id="zoom-fit">FIT</button>
   </div>
 </div>
 
 <script>
 let pageFlip;
-const BOOK_W = 550;
-const BOOK_H = 780;
+const BOOK_W = 550; const BOOK_H = 780;
 let currentZoom = 1.0;
-const ZOOM_MIN  = 0.4;
-const ZOOM_MAX  = 3.0;
-const ZOOM_STEP = 0.15;
-
+const ZOOM_MIN = 0.4; const ZOOM_MAX = 3.0; const ZOOM_STEP = 0.15;
 const wrapper = document.getElementById('zoom-wrapper');
-const label   = document.getElementById('zoom-label');
+const label = document.getElementById('zoom-label');
 
 function applyZoom(z) {
   currentZoom = Math.min(ZOOM_MAX, Math.max(ZOOM_MIN, z));
@@ -496,27 +423,19 @@ function applyZoom(z) {
 }
 
 function fitToScreen() {
-  const availW = window.innerWidth  * 0.96;
+  const availW = window.innerWidth * 0.96;
   const availH = (window.innerHeight - 110) * 0.96;
-  const scaleW = availW  / (BOOK_W * 2);
-  const scaleH = availH  / BOOK_H;
-  applyZoom(Math.min(scaleW, scaleH));
+  applyZoom(Math.min(availW / (BOOK_W * 2), availH / BOOK_H));
 }
 
 function flip(n) { pageFlip.flip(n); }
 
-document.getElementById('zoom-in') .addEventListener('click', () => applyZoom(currentZoom + ZOOM_STEP));
+document.getElementById('zoom-in').addEventListener('click', () => applyZoom(currentZoom + ZOOM_STEP));
 document.getElementById('zoom-out').addEventListener('click', () => applyZoom(currentZoom - ZOOM_STEP));
-document.getElementById('zoom-fit').addEventListener('click', fitToScreen);
 
 document.addEventListener('DOMContentLoaded', () => {
-  const el = document.getElementById('book');
-  pageFlip = new St.PageFlip(el, {
-    width:      BOOK_W,
-    height:     BOOK_H,
-    size:       'fixed',
-    showCover:  true,
-    useMouseEvents: true
+  pageFlip = new St.PageFlip(document.getElementById('book'), {
+    width: BOOK_W, height: BOOK_H, size: 'fixed', showCover: true, useMouseEvents: true
   });
   pageFlip.loadFromHTML(document.querySelectorAll('.page'));
   document.getElementById('prev').addEventListener('click', () => pageFlip.flipPrev());
