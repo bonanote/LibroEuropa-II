@@ -48,7 +48,7 @@ body {
   position: relative;
 }
 
-/* MARGEN INFERIOR AUMENTADO A 70px PARA EVITAR CORTES */
+/* MARGEN INFERIOR AMPLIO PARA EVITAR CORTES */
 .page-content {
   padding: 45px 45px 70px 45px;
   height: 100%;
@@ -86,11 +86,31 @@ p {
   margin-top: 10px;
 }
 
+/* CLASES DE IMAGEN ESTANDARIZADAS - Según tu código */
+.photo-frame {
+  width: 100%; height: 220px;
+  min-height: 220px;
+  background: #f4f4f4; border: 6px solid #fff;
+  box-shadow: 2px 2px 10px rgba(0,0,0,0.15);
+  margin: 15px auto;
+  display: flex; align-items: center; justify-content: center; overflow: hidden;
+  transform: rotate(-0.5deg);
+}
+
+.photo-frame img {
+  width: 100%; height: 100%; object-fit: cover; 
+  filter: sepia(15%) contrast(110%);
+}
+
+.caption {
+  font-size: 0.8rem; text-align: center; color: #666; font-style: italic; margin-top: 5px;
+}
+
 .notes-section {
   background-color: #f9f9f9;
   border-left: 4px solid #ccc;
-  padding: 12px;
-  margin-top: 10px;
+  padding: 15px;
+  margin-top: 25px;
   font-size: 0.85rem;
   line-height: 1.4;
   color: #444;
@@ -98,13 +118,14 @@ p {
 
 .notes-title {
   font-weight: bold;
-  margin-bottom: 5px;
+  margin-bottom: 8px;
   font-family: 'Cinzel', serif;
   font-size: 0.9rem;
   border-bottom: 1px solid #ddd;
+  padding-bottom: 5px;
 }
 
-.note-item { margin-bottom: 5px; }
+.note-item { margin-bottom: 8px; }
 .note-ref { font-weight: bold; color: #2c3e50; }
 
 .blank-page-text {
@@ -113,16 +134,7 @@ p {
   font-family: 'Cinzel', serif; font-style: italic; color: #aaa; font-size: 1.2rem;
 }
 
-.photo-frame {
-  width: 100%; height: 350px;
-  background: #f4f4f4; border: 6px solid #fff;
-  box-shadow: 2px 2px 10px rgba(0,0,0,0.15);
-  margin: 10px auto;
-  display: flex; align-items: center; justify-content: center; overflow: hidden;
-}
-
-.photo-frame img { width: 100%; height: 100%; object-fit: contain; }
-
+/* Cubierta y Contratapa */
 .cover {
   background-color: #2c3e50; color: #fff; padding: 40px;
   display: flex; flex-direction: column; justify-content: space-between;
@@ -207,8 +219,8 @@ p {
     <div class="page" data-density="soft">
       <div class="page-content">
         <div class="header">CONTEXTO FAMILIAR</div>
-        <div class="photo-frame" style="height: 500px;">
-          <img src="LibroEuropaII/infografia_familia.png" alt="Infografía">
+        <div style="text-align: center; margin-top: 10px;">
+          <img src="LibroEuropaII/infografia_familia.png" alt="Infografía" style="max-width: 100%; max-height: 500px;">
         </div>
       </div>
     </div>
@@ -218,13 +230,6 @@ p {
         <div class="header">ÍNDICE VOLUMEN II</div>
         <ul class="index-list">
           <li onclick="flip(4)">25 DE MAYO DE 1972 - ¡FAUSTO DÍA! <span class="index-num">5</span></li>
-          <li onclick="flip(7)">02 DE JUNIO DE 1972 - FENÓMENO TELEPÁTICO <span class="index-num">8</span></li>
-          <li onclick="flip(10)">04 DE JUNIO DE 1972 - ÚLTIMA SEMANA DE CIVIL <span class="index-num">11</span></li>
-          <li onclick="flip(11)">05 DE JUNIO DE 1972 - ROUSSEAU O VICTOR HUGO <span class="index-num">12</span></li>
-          <li onclick="flip(13)">06 DE JUNIO DE 1972 - 100 DÓLARES DE ALEGRÍA <span class="index-num">14</span></li>
-          <li onclick="flip(14)">12 DE JUNIO DE 1972 - EL HIJO PERDIDO <span class="index-num">15</span></li>
-          <li onclick="flip(17)">15 DE JUNIO DE 1972 - ARTE Y OFICIOS EN VEVEY <span class="index-num">18</span></li>
-          <li onclick="flip(19)">20 DE JUNIO DE 1972 - CALMA LOS NERVIOS <span class="index-num">20</span></li>
         </ul>
       </div>
     </div>
@@ -262,10 +267,16 @@ p {
         <p>Bueno ahora tengo que entrar a clases, gracias por llamar, espero que la proxima vez no me agarren de sorpresa , y que se me ocurra todo lo que tengo que decir y se escuche mejor . Aunque tengo la impresion que ustedes me escuchaban bien. Chao! Gracias por todo lo que hacen por mi. Besos, abrazos y saludos.</p>
         <div class="handwritten">Guillermo</div>
         <p>PD: ¡y el rana de Nello me podría haber hablado también, lo extraño! Que me escriba !!!</p>
-        
-        <div class="photo-frame" style="height: 220px; margin: 15px auto;">
+      </div>
+    </div>
+
+    <div class="page" data-density="soft">
+      <div class="page-num">8</div>
+      <div class="page-content">
+        <div class="photo-frame">
           <img src="LibroEuropaII/ilustracion_carta1.png" alt="Ilustración Carta 1">
         </div>
+        <div class="caption">Recuerdos de Suiza, 1972.</div>
 
         <div class="notes-section">
           <div class="notes-title">NOTAS DEL TEXTO</div>
@@ -277,133 +288,8 @@ p {
     </div>
 
     <div class="page" data-density="soft">
-      <div class="page-num">8</div>
       <div class="page-content">
-        <div class="header">02 DE JUNIO DE 1972 - FENÓMENO TELEPÁTICO</div>
-        <p>Queridos mami y papi: Este mañana me olvidé contarles el fenómeno telepático que tuve. Estaba durmiendo cuando de repente sentí que estaba hablando con mami por teléfono y me dijo algo que me hizo despertar, me desperté miré el reloj, ví que era temprano y me tiré para dormir cuando sonó el teléfono y eran uds, ¿no les parece fantástico? No me acuerdo cuando recibí la última carta suya pero ya se la contesté y ayer, como ya dije por teléfono, recibí lo de Nello que me dejó atónito por el francés (si eso lo escribió él, yo me frustro porque es más o menos lo que puedo escribir yo).</p>
-        <p>Qué lástima que el cassette tenga que pasar por aduana porque como funcionan las cosas en la Arg. va a tardar años para salir, ¿o Rubio puede hacer algo? De todos modos tengo un amigo Colombiano que se va a operar de úlcera a la Argentina y les mando un cassette por él, creo que sale el lunes 10. Ahora uds. mándenme cassettes por correo porque creo que acá es muy fácil el asunto de la aduana.</p>
-      </div>
-    </div>
-
-    <div class="page" data-density="soft">
-      <div class="page-num">9</div>
-      <div class="page-content">
-        <p style="font-style: italic;">Le jeudi passé soir a commencé la fête de la cité. Ça a été una fiesta formidable. Duró tres días, se podía ver a todo el mundo bailar y beber, día y noche. Se parecía al Carnaval de Río. Sans ninguna duda los que más se divertían eran los españoles y los italianos, hacían un ruido increíble. J'ai été là le vendredi soir et hier hasta las tres de la mañana, eso es por lo cual mamá encontró mi voz un poco rara, me había acostado a las cinco de la mañana.</p>
-        <p>Tengo dos fotos de un piso que se las voy a mandar junto con esta carta porque vean mi mundo. Mami no te preocupes, que me dijiste por teléfono que no me haga el <strong>"calavera"</strong>. Yo supongo que me conocen bastante y saben que de irresponsable no tengo nada. El pelo me lo corto el domingo que viene o el sábado, pero la barba NO, ¿para qué?, si la tengo prolija y bien cortada. Ayer fuimos a Ginebra a llevar a un amigo al aeropuerto y después nos dimos una vuelta por la ciudad. </p>
-      </div>
-    </div>
-
-    <div class="page" data-density="soft">
-      <div class="page-num">10</div>
-      <div class="page-content">
-        <p>Ah! y el miércoles pasado fuimos a Montreux que hay un festival de jazz y tocan unos conjuntos buenísimos, aparte de que Montreux es muy lindo. Ya terminé las clases de francés porque quería tenerme una semana libre para arreglar todos los asuntos antes de entrar al servicio. Además me da una bronca tremenda de tener que empezar con el servicio, todo el mundo se va de vacaciones para lugares espectaculares y yo me tengo que morir de calor laburando como un negro, ¡pero bueh! Voy a aprender bien bien el francés. Espero que mañana reciba la carta donde me escriben sobre la operación del <strong>Vati</strong>. Reciban muchos cariños y besos a todos y especialmente a mami que siempre me llama.</p>
-        <div class="handwritten">Guillermo</div>
-        <div class="photo-frame"><img src="LibroEuropaII/IMAGEN 2.png" alt="Imagen 2"></div>
-      </div>
-    </div>
-
-    <div class="page" data-density="soft">
-      <div class="page-num">11</div>
-      <div class="page-content">
-        <div class="header">04 DE JUNIO DE 1972 - ÚLTIMA SEMANA DE CIVIL</div>
-        <p>Queridos Mami y Papi: Ayer recibí el aerograma del hospital que mandó mami, en un mismo día yo mandé una carta con fotos. Bueno esta es mi última semana de civil así que trato de aprovecharla <strong>al mango</strong>. Desde luego que tengo que hacer unos cuantos preparativos, pero no son nada problemáticos. Todavía no me contestaron de la universidad pero no se preocupen, mami por ahí me pregunta si podré entrar. Si puedo, pero el problema es otro, que no quiero dar examen de ingreso, que, si llegado el caso, no me queda otra alternativa, lo daría y de pasarlo entraría. </p>
-        <p>Mami yo te extraño, te quiero, me cuido, me corté (me cortaron más bien) el pelo, la barba sigue igual, fumaba bastante pero bajé vertiginosamente. Dale en fin soy un muchacho hecho y derecho digno de los padres que tengo. Muchos besos y cariños al <strong>"bestia"</strong> (Nello) y decile a Nelly que el paquete para Patsy lo mandé hace años pero nunca me contestó.</p>
-        <div class="handwritten">Willie Guillermo</div>
-      </div>
-    </div>
-
-    <div class="page" data-density="soft">
-      <div class="page-num">12</div>
-      <div class="page-content">
-        <div class="header">05 DE JUNIO DE 1972 - ROUSSEAU O VICTOR HUGO</div>
-        <p>Chers papa et chère maman: Papá, ayer viernes recibí tu carta del 30.5.72. Antes que nada, lo que mamá dijo (que oía una voz que reía) me hizo reír, ustedes no pueden entender que la inglesa no tiene nada que ver conmigo. Ya lo dije una decena de veces, es solo una amiga. Gracias por el envío de los 100 u$s. El mes de Mayo gasté 1000 SF aproximadamente (recordar los 365 ChFr de la escuela Berlitz). </p>
-        <p>Bueno es injusto que escriba todo en francés sino la pobre mamá no entiende nada. ¡Che papi! ¿donde se ha visto un gerente general empleando palabras como <strong>"boulot"</strong> y <strong>"casser la croûte"</strong>? ¡Me extraña! En esta lengua hay más formalismos y burocracia que hay que ser Rousseau o Victor Hugo para comprar un caramelo por carta.</p>
-      </div>
-    </div>
-
-    <div class="page" data-density="soft">
-      <div class="page-num">13</div>
-      <div class="page-content">
-        <p>A Trudy y a Jack siempre les escribo. Por acá el resto sigue todo más bien. Mami el otro día le cambié todos los botones a la camisa negra, 12 botones pegué, ¿qué te parece? Acá les mando una foto con Susan la de remera negra y Tulia (remera roja). En definitiva el único que salió <strong>"pintón"</strong> fui yo. (Mami el pelo no lo tengo así de largo, es lo que en fotografía se llama ilusión fotográfica). Manden fotos de sus vacaciones por Yacanto (lindo lieu). Saludos, besos, cariños de su hijo que los extraña también. Especialmente a Lidia cuando se trata de comer.</p>
-        <div class="handwritten">Guillermo</div>
-        <div class="photo-frame"><img src="LibroEuropaII/IMAGEN 3.png" alt="Imagen 3"></div>
-      </div>
-    </div>
-
-    <div class="page" data-density="soft">
-      <div class="page-num">14</div>
-      <div class="page-content">
-        <div class="header">06 DE JUNIO DE 1972 - 100 DÓLARES DE ALEGRÍA</div>
-        <p>Queridos padres: Hoy rebozo de alegría, han llegado los 100 dólares. Esta tarde los fui a buscar eran 382 francos. Ahora estoy más tranquilo. Esta noche cuando vuelva a casa les pongo cuánto dinero en efectivo me queda.</p>
-        <p>Bueno, como ayer mandé la otra carta, en dos días no hay ninguna novedad. ¡Ah! Madre hay una sola !! y padre también. Pero haber si me pueden explicar bien el asunto del dinero. Es decir con lo que tengo me alcanza hasta que vaya a la argentina (creo), porque durante los meses de servicio supongo que no gastaré gran cosa. Después del 10 de julio escriban a esta dirección: [Dirección tachada] .</p>
-        <p>Todavía sigo esperando los prospectos del colegio para Nellito (es público así que creo que no cuesta nada). Muchos besos, mami y espero no desesperes.</p>
-        <div class="handwritten">Guillermo (Guillermito para mami)</div>
-      </div>
-    </div>
-
-    <div class="page" data-density="soft">
-      <div class="page-num">15</div>
-      <div class="page-content">
-        <div class="header">12 DE JUNIO DE 1972 - EL HIJO PERDIDO</div>
-        <p>Same place, Lunes 12/6/72</p>
-        <p>Queridos padres: Acabo de recibir los tres aerogramas y un papelito para buscar un "envoi recommandé" al correo que deben ser revistas. Explíquenme bien cómo es el asunto del pibe Mattioli porque yo el 10 de julio ya no estoy más acá y espero que él venga antes de esa fecha. De todas maneras voy a hacer el cambio de domicilio en el correo por cualquier eventualidad. La plata llegó bien (como ya escribí) y no hace falta que manden la copia del formulario. Voy a ir al banco a averiguar cómo hago cuando esté en el servicio militar. De todas maneras ¿están seguros que no se puede hacer nada con la cuenta que abrí en el otro banco? La universidad todavía no me contestó así que mañana voy a ver lo que pasa, la beca solo la puedo gestionar una vez que esté adentro.</p>
-      </div>
-    </div>
-
-    <div class="page" data-density="soft">
-      <div class="page-num">16</div>
-      <div class="page-content">
-        <p>Del cole para Nello todavía no recibí nada pero me enteré de algunos detalles. Hay dos "degrees": uno es "decorateur" son 2 años (3360 horas de clase en total) y el otro es "decorateur-createur" son 3 1/2 a 4 años (alrededor de 4500 horas). Otro detalle, miré cómo será de bueno que para fotografía no hay entrada por 2 o 3 años de la gente que hay inscripta y cuesta como 400 francos por año (tirado).</p>
-        <p>Mirá qué casualidad hoy ayer hice panqueques y hoy me llega la receta, en fin los de ayer estuvieron comibles porque no me acordaba muy bien. El sábado me jugué un partidito de rugby, hoy estoy molido todavía. En la Berlitz subí de curso, ahora estoy más adelantado, y por lo que dicen parece que "je parle bien". Si Nello le mete con el francés supongo que en Marzo '73 podría empezar. ¡Che! le pueden decir que escriba, ¿no?</p>
-      </div>
-    </div>
-
-    <div class="page" data-density="soft">
-      <div class="page-num">17</div>
-      <div class="page-content">
-        <p>Mami ¿no tendrás amebas vos? Hablando de enfermedades por acá andan las paperas (yo ya las tuve ¿no?). Ah y a mí me están saliendo las muelas del juicio, espero que no haya complicaciones porque si me tienen que hacer algo los fundo. Papi, ¿me saco un "assurance maladie" para estar fuera de riesgo? "Más vale prevenir que pagar".</p>
-        <p>Acá va una fotito de los "santos suizos" que también se quejan de la vida. Fue una manifestación del 1 de Mayo de los obreros españoles e italianos, ¡estos gallegos lo que no dijeron de Franco! Bueno por hoy no se me ocurre más nada. ¡Muchos besos mami y aguantá <strong>piola</strong> que ya vuelvo! El lunar sigue bien.. Abrazo papi y mis besos y cariños ¡Chau!</p>
-        <div class="handwritten">El hijo perdido Guillermo</div>
-        <div class="photo-frame"><img src="LibroEuropaII/MANIFESTACION.png" alt="Manifestación"></div>
-      </div>
-    </div>
-
-    <div class="page" data-density="soft">
-      <div class="page-num">18</div>
-      <div class="page-content">
-        <div class="header">15 DE JUNIO DE 1972 - ARTE Y OFICIOS EN VEVEY</div>
-        <p>Lausanne 15/6/72</p>
-        <p>Queridos mami y papi y (no tanto) Nello: Acá les mando los folletos de l'Ecole d'Art et Métier de Vevey. Ahí explican todo lo que se quiera saber. Incluso están dos fichas, una para decoración y otra para fotografía. Hay tiempo para entregarlas porque la fecha de vencimiento es el 31 de mayo. Así que todavía lo puede pensar bien y esperar que yo pase por Argentina para discutir más el asunto, pero se lo mando ahora para que vaya decidiendo. Hay una cosa que no entiendo bien, parece que la única fecha de entrada sería a fines de agosto (leer pág. 7 Renseignements divers). Bueno, en fin, es todo lo que les puedo mandar; de todas maneras esperen hasta que yo vaya por allá para discutir y tomar decisiones.</p>
-        <p>En cuanto a mi facultad se armaron unos problemitas pero creo que mañana los voy a solucionar, por ahora no les digo más porque el asunto es complicado; si lo arreglo, bien; y si no, les cuento. No se preocupen que aquí no es la muerte de nadie.</p>
-      </div>
-    </div>
-
-    <div class="page" data-density="soft">
-      <div class="page-num">19</div>
-      <div class="page-content">
-        <p>¡Ah! me llegaron las revistas, ¡muchas gracias! ¡Anda bien el país!!! ¿eh? ¡¡<strong>Un kilo de lomo 1.150 $</strong>!!?? ¿Cómo estás mami, me extrañás todavía? Bueno esta carta seguro la reciban cuando vuelvan de vacaciones, espero que lo hayan pasado bien. Saludos a los Engbäcky al degenerado de Nello decile que no hay derecho! ¡por lo menos María podría pasar por acá a la vuelta no?</p>
-        <div class="handwritten">Chau muchos besos mami. Cariños. Guillermo</div>
-        <div class="photo-frame"><img src="LibroEuropaII/FOLLETO_VEVEY.png" alt="Folleto Vevey"></div>
-      </div>
-    </div>
-
-    <div class="page" data-density="soft">
-      <div class="page-num">20</div>
-      <div class="page-content">
-        <div class="header">20 DE JUNIO DE 1972 - CALMA LOS NERVIOS</div>
-        <p>Lausanne 20/6/72</p>
-        <p>Queridos papi y mami: Esta es una carta un poco a la ligera para informarles sobre la situación económica. Abrí una cuenta en el Credit Suisse y le di poder a este amigo colombiano (Jorge) del cual ya les hablé (es un tipo parecido a Engbäck). Lo único que tienen que hacer ahora es girar la plata al Credit Suisse a mi cuenta corriente Nº 178.590 así el tipo este puede sacar la plata por mí cuando esté en el servicio militar.</p>
-        <p>Una pregunta ¿Qué hago con la otra cuenta que abrí en Société de Banques Suisses? ¿La cierro, la dejo? ¿Me van a girar plata ahí? porque si lo van a hacer, tengo que darle poder en ese banco también. Infórmenme bien de lo que ustedes pueden hacer desde allí para girar dinero, porque ahora me quedan + ó - 800 francos y no me daría vergüenza tener que pedirle a Jack o Trudy. Yo calculo que desde hoy hasta alrededor del 10 de diciembre (que sería cuando vuelvo) necesito + ó - 2000 francos.</p>
-      </div>
-    </div>
-
-    <div class="page" data-density="soft">
-      <div class="page-num">21</div>
-      <div class="page-content">
-        <p>Por el resto todo anda bien. El problema de la Universidad va por buen camino, ahora que se enteraron que soy suizo (después les cuento). Espero que estén bien y se acuerden que el dinero no hace la felicidad pero calma los nervios. ¿Mami cómo estás? ¿Me extraña la <strong>Chuchi</strong> ? Feliz día del Padre papi. A ver si lo llaman a este hijo perdido. Como de costumbre va un poco los extraño así que muchos saludos, besos, cariños (a Mami).</p>
-        <div class="handwritten">Guillermo Bona su seguro servidor</div>
-        <p>PD: ¡Che! que es <strong>jodido</strong> arreglárselas solo... si ya se papi ……(¡qué aprenda !!) Chau.</p>
-        <div class="photo-frame"><img src="LibroEuropaII/CREDIT_SUISSE.png" alt="Documento Banco"></div>
+        <div class="blank-page-text"></div>
       </div>
     </div>
 
@@ -414,7 +300,10 @@ p {
       <div style="text-align:center; font-weight:bold;">DIGITALIZADO 2026</div>
     </div>
 
-  </div></div><div class="controls-container">
+  </div>
+</div>
+
+<div class="controls-container">
   <button class="nav-btn" id="prev">&#8592;</button>
   <button class="index-btn" onclick="flip(2)">ÍNDICE</button>
   <button class="nav-btn" id="next">&#8594;</button>
