@@ -392,4 +392,46 @@ p {
   <div class="zoom-group">
     <button class="zoom-btn" id="zoom-out">−</button>
     <span id="zoom-label">100%</span>
-    <button class="zoom-btn" id
+    <button class="zoom-btn" id="zoom-in">+</button>
+  </div>
+</div>
+
+<script>
+let pageFlip;
+const BOOK_W = 550; const BOOK_H = 780;
+let currentZoom = 1.0;
+const ZOOM_MIN = 0.4; const ZOOM_MAX = 3.0; const ZOOM_STEP = 0.15;
+const wrapper = document.getElementById('zoom-wrapper');
+const label = document.getElementById('zoom-label');
+
+function applyZoom(z) {
+  currentZoom = Math.min(ZOOM_MAX, Math.max(ZOOM_MIN, z));
+  wrapper.style.transform = `scale(${currentZoom})`;
+  label.textContent = Math.round(currentZoom * 100) + '%';
+}
+
+function fitToScreen() {
+  const availW = window.innerWidth * 0.96;
+  const availH = (window.innerHeight - 110) * 0.96;
+  applyZoom(Math.min(availW / (BOOK_W * 2), availH / BOOK_H));
+}
+
+function flip(n) { pageFlip.flip(n); }
+
+document.getElementById('zoom-in').addEventListener('click', () => applyZoom(currentZoom + ZOOM_STEP));
+document.getElementById('zoom-out').addEventListener('click', () => applyZoom(currentZoom - ZOOM_STEP));
+
+document.addEventListener('DOMContentLoaded', () => {
+  pageFlip = new St.PageFlip(document.getElementById('book'), {
+    width: BOOK_W, height: BOOK_H, size: 'fixed', showCover: true, useMouseEvents: true
+  });
+  pageFlip.loadFromHTML(document.querySelectorAll('.page'));
+  document.getElementById('prev').addEventListener('click', () => pageFlip.flipPrev());
+  document.getElementById('next').addEventListener('click', () => pageFlip.flipNext());
+  fitToScreen();
+  window.addEventListener('resize', fitToScreen);
+});
+</script>
+
+</body>
+</html>
