@@ -48,7 +48,7 @@ body {
   position: relative;
 }
 
-/* MARGEN INFERIOR AMPLIO PARA EVITAR CORTES */
+/* MARGEN INFERIOR AMPLIO PARA EVITAR CORTES VISUALES */
 .page-content {
   padding: 45px 45px 70px 45px;
   height: 100%;
@@ -344,13 +344,14 @@ p {
         <p>El paquete que mandaron con Mattioli no me llegó, pero supongo que esta semana tiene que venir; de todos modos hago el cambio de dirección así que no hay problema.</p>
         <p style="font-style: italic;">Comme j'ai écrit une lettre le lundi j'ai pu raconter dans celle-là. J'ai fait le bilan de cette mois et je trouve que j'ai 800 francs suisses, sans compter l'argent que j'ai épargné pendant ces mois de travail. (Que, comme j'ai déjà dit, c'est argent destiné à acheter du matériel photographique). Je n'ai pas encore reçu les derniers 100 dollars que tu as envoyé pour le mois de Juillet.</p>
         <p style="font-style: italic;">Envoie mes regards a Mutti et Vati, que j'espère est en bonne santé. De toute façon je vais les écrire une petite lettre avant la fin de la semaine.</p>
-        <p style="font-style: italic;">Je ne sais pas comme tu trouves mon français écrit, mais j'espère de l'améliorer dans ces quatre mois de service.</p>
       </div>
     </div>
 
     <div class="page" data-density="soft">
       <div class="page-num">13</div>
       <div class="page-content">
+        <p style="font-style: italic;">Je ne sais pas comme tu trouves mon français écrit, mais j'espère de l'améliorer dans ces quatre mois de service.</p>
+        
         <p>Mami yo te extraño, te quiero, me cuido, me corté (me cortaron más bien) el pelo, la barba sigue igual, fumaba bastante pero bajé vertiginosamente porque me dí cuenta que lo único que hace es arruinarte los años, como bien, me lavo, no trasnocho mucho, dale en fin soy un muchacho hecho y derecho digno de los padres que tengo.</p>
         <p>Muchos besos y cariños y a ver (sin "hache") si <strong>"el bestia"</strong> (cariñosamente) me escribe más a menudo decile a Nelly que el paquete para Patsy lo mandé hace años pero nunca me contestó.</p>
         <p style="text-align: right; font-style: italic; margin-top: 15px;">Salutations distinguées</p>
@@ -391,46 +392,4 @@ p {
   <div class="zoom-group">
     <button class="zoom-btn" id="zoom-out">−</button>
     <span id="zoom-label">100%</span>
-    <button class="zoom-btn" id="zoom-in">+</button>
-  </div>
-</div>
-
-<script>
-let pageFlip;
-const BOOK_W = 550; const BOOK_H = 780;
-let currentZoom = 1.0;
-const ZOOM_MIN = 0.4; const ZOOM_MAX = 3.0; const ZOOM_STEP = 0.15;
-const wrapper = document.getElementById('zoom-wrapper');
-const label = document.getElementById('zoom-label');
-
-function applyZoom(z) {
-  currentZoom = Math.min(ZOOM_MAX, Math.max(ZOOM_MIN, z));
-  wrapper.style.transform = `scale(${currentZoom})`;
-  label.textContent = Math.round(currentZoom * 100) + '%';
-}
-
-function fitToScreen() {
-  const availW = window.innerWidth * 0.96;
-  const availH = (window.innerHeight - 110) * 0.96;
-  applyZoom(Math.min(availW / (BOOK_W * 2), availH / BOOK_H));
-}
-
-function flip(n) { pageFlip.flip(n); }
-
-document.getElementById('zoom-in').addEventListener('click', () => applyZoom(currentZoom + ZOOM_STEP));
-document.getElementById('zoom-out').addEventListener('click', () => applyZoom(currentZoom - ZOOM_STEP));
-
-document.addEventListener('DOMContentLoaded', () => {
-  pageFlip = new St.PageFlip(document.getElementById('book'), {
-    width: BOOK_W, height: BOOK_H, size: 'fixed', showCover: true, useMouseEvents: true
-  });
-  pageFlip.loadFromHTML(document.querySelectorAll('.page'));
-  document.getElementById('prev').addEventListener('click', () => pageFlip.flipPrev());
-  document.getElementById('next').addEventListener('click', () => pageFlip.flipNext());
-  fitToScreen();
-  window.addEventListener('resize', fitToScreen);
-});
-</script>
-
-</body>
-</html>
+    <button class="zoom-btn" id
