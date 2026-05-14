@@ -86,10 +86,11 @@ p {
   margin-top: 5px;
 }
 
-/* CLASES DE IMAGEN ESTANDARIZADAS */
+/* CLASES DE IMAGEN ESTANDARIZADAS - Añadido flex-shrink:0 para proteger la altura */
 .photo-frame {
   width: 100%; height: 220px;
-  min-height: 220px;
+  min-height: 220px; max-height: 220px;
+  flex-shrink: 0;
   background: #f4f4f4; border: 6px solid #fff;
   box-shadow: 2px 2px 10px rgba(0,0,0,0.15);
   margin: 15px auto;
@@ -236,7 +237,7 @@ p {
           <li onclick="flip(13)">05 DE JUNIO DE 1972 - ROUSSEAU O VICTOR HUGO <span class="index-num">14</span></li>
           <li onclick="flip(16)">06 DE JUNIO DE 1972 - LOS 100 DÓLARES <span class="index-num">17</span></li>
           <li onclick="flip(18)">12 DE JUNIO DE 1972 - EL HIJO PERDIDO <span class="index-num">19</span></li>
-          <li onclick="flip(21)">15 DE JUNIO DE 1972 - FOLLETOS DE VEVEY <span class="index-num">23</span></li>
+          <li onclick="flip(21)">15 DE JUNIO DE 1972 - FOLLETOS DE VEVEY <span class="index-num">22</span></li>
         </ul>
       </div>
     </div>
@@ -484,12 +485,7 @@ p {
         <p>¡Chau!</p>
         <div class="handwritten">Guillermo</div>
         <p style="text-align: right; font-style: italic; margin-top: -5px;">El hijo perdido</p>
-      </div>
-    </div>
 
-    <div class="page" data-density="soft">
-      <div class="page-num">22</div>
-      <div class="page-content">
         <div class="photo-frame">
           <img src="LibroEuropaII/ilustracion_carta6.png" alt="Ilustración Carta 6">
         </div>
@@ -498,8 +494,7 @@ p {
         <div class="notes-section">
           <div class="notes-title">NOTAS DEL TEXTO</div>
           <p class="note-item"><span class="note-ref">Envoi recommandé:</span> Envío certificado o registrado en el servicio postal francés.</p>
-          <p class="note-item"><span class="note-ref">Je parle bien / Dernière fois:</span> "Hablo bien" y "última vez", incorporando orgánicamente los progresos en el idioma.</p>
-          <p class="note-item"><span class="note-ref">Assurance maladie:</span> Seguro médico, reflejando una preocupación constante al vivir solo en el extranjero.</p>
+          <p class="note-item"><span class="note-ref">Assurance maladie:</span> Seguro médico, reflejando una preocupación constante al vivir solo.</p>
           <p class="note-item"><span class="note-ref">Gallegos:</span> Uso generalizado y coloquial en Argentina para referirse a cualquier ciudadano español.</p>
           <p class="note-item"><span class="note-ref">Aguantá piola:</span> Expresión coloquial rioplatense que significa tener paciencia o resistir con tranquilidad.</p>
         </div>
@@ -507,7 +502,7 @@ p {
     </div>
 
     <div class="page" data-density="soft">
-      <div class="page-num">23</div>
+      <div class="page-num">22</div>
       <div class="page-content">
         <div class="header">15 DE JUNIO DE 1972 - FOLLETOS DE VEVEY</div>
         <p style="font-style: italic; text-align: right; margin-bottom: 20px;">Lausanne 15/6/72</p>
@@ -518,18 +513,13 @@ p {
     </div>
 
     <div class="page" data-density="soft">
-      <div class="page-num">24</div>
+      <div class="page-num">23</div>
       <div class="page-content">
         <p>¡Ah! me llegaron las revistas, ¡muchas gracias! ¡Anda bien el país!!! ¿eh? ¡¡Un kilo de lomo 1.150 $!!??</p>
         <p>¿Cómo estás mami, me extrañás todavía? Bueno esta carta seguro la reciban cuando vuelvan de vacaciones, espero que lo hayan pasado bien. Saludos a los Engbäck y al degenerado de Nello decile que no hay derecho! ¡por lo menos María podría pasar por acá a la vuelta no?</p>
         <p>Chau muchos besos mami. Cariños.</p>
         <div class="handwritten">Guillermo</div>
-      </div>
-    </div>
 
-    <div class="page" data-density="soft">
-      <div class="page-num">25</div>
-      <div class="page-content">
         <div class="photo-frame">
           <img src="LibroEuropaII/ilustracion_carta7.png" alt="Ilustración Carta 7">
         </div>
@@ -537,8 +527,8 @@ p {
 
         <div class="notes-section">
           <div class="notes-title">NOTAS DEL TEXTO</div>
-          <p class="note-item"><span class="note-ref">L'Ecole d'Art et Métier de Vevey:</span> Importante escuela de artes aplicadas en Suiza, pionera en la enseñanza de la fotografía.</p>
-          <p class="note-item"><span class="note-ref">Un kilo de lomo 1.150 $:</span> Referencia a la inflación en Argentina durante 1972. Se refiere a los Pesos Ley 18.188 (o Pesos Moneda Nacional dependiendo del titular), reflejando la sorpresa desde la distancia.</p>
+          <p class="note-item"><span class="note-ref">L'Ecole d'Art et Métier:</span> Importante escuela de artes aplicadas en Suiza, pionera en enseñanza de fotografía.</p>
+          <p class="note-item"><span class="note-ref">Un kilo de lomo 1.150 $:</span> Referencia a la inflación en Argentina durante 1972, expresada en Pesos Ley 18.188.</p>
           <p class="note-item"><span class="note-ref">María y los Engbäck:</span> Amistades familiares probablemente viajando por Europa o de vacaciones por Argentina.</p>
         </div>
       </div>
